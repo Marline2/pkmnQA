@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Name from "./Name";
+import Quiz from "./Quiz";
+import Score from "./Score";
+import Message from "./Message";
+import Ranking from "./Ranking";
+import Spinner from "./Spinner";
+import Answer from "./Answer";
+
+import { withRouter } from "react-router";
+
+import { connect } from "react-redux";
+import { firestore } from "./firebase";
+
+const mapStateTopProps = (state) => ({
+  ...state,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  load: () => {},
+});
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Switch>
+          <Route path="/quiz" component={Quiz} />
+          <Route path="/" exact component={Name} />
+          <Route path="/score" component={Score} />
+          <Route path="/message" component={Message} />
+          <Route path="/ranking" component={Ranking} />
+          <Route path="/answer" component={Answer} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default connect(mapStateTopProps, mapDispatchToProps)(withRouter(App));
