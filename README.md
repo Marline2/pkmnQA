@@ -37,7 +37,7 @@ npm install [-g(선택)] yarn
 
 [CRA(Create React App)](https://create-react-app.dev/)
 
-- 웹사이트를 만들 때 필요한 것을 넣어 만든 패키지입니다.
+- CRA를 통해 React App을 만듭니다.
 
 ```html
 yarn create react-app [만들 프로젝트명]
@@ -45,7 +45,7 @@ yarn create react-app [만들 프로젝트명]
 
 [react-router-dom](https://v5.reactrouter.com/web/guides/primary-components)
 
-- 웹사이트를 만들 때 필요한 것을 넣어 만든 패키지입니다.
+- 페이지 전환을 위한 패키지입니다.
 
 ```html
 yarn add react-router-dom
